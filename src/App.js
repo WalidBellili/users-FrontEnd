@@ -1,10 +1,22 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CreateUser from "./pages/CreateUser";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import User from "./pages/User";
+import Container from "./components/Container";
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <BrowserRouter>
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users/:user" element={<User />} />
+          <Route path="/createUser" element={<CreateUser />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Container>
+    </BrowserRouter>
   );
 };
 
