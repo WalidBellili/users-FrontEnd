@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ users }) => {
+  console.log(users.slug);
   return (
     <div>
       <section>
@@ -13,7 +16,9 @@ const Card = ({ users }) => {
                     width={300}
                     height={230}
                   />
-                  <p>{user.name}</p>
+                  <Link to={`/users/${users.slug}`}>
+                    <p>{user.name}</p>
+                  </Link>
                 </div>
               );
             })}
