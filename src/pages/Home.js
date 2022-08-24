@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Card from "../components/Card";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -13,10 +13,10 @@ const Home = () => {
     const response = await request.json();
     setUsers(response);
   };
-  //   console.log(users);
+  console.log(users);
   return (
     <div>
-      
+      <Card users={users} />
     </div>
   );
 };
