@@ -1,17 +1,29 @@
 import { useState } from "react";
 import Select from "../components/Select";
+import Input from "../components/Input";
 
 const CreateUser = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [optionsValue, setOptionsValue] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [picture, setPicture] = useState("");
+  const [selectCity, setSelectedCity] = useState("");
 
-  const handleChange = (e) => {
-    setOptionsValue(e.target.value);
+  const handleNameValue = (e) => {
+    setName(e.target.value);
   };
-  const valueInput = (e) => {
-    setInputValue(e.target.value);
+  const handleEmailValue = (e) => {
+    setEmail(e.target.value);
   };
-
+  const handlePasswordValue = (e) => {
+    setPassword(e.target.value);
+  };
+  const handlePicture = (e) => {
+    setPicture(e.target.value);
+  };
+  const handleSelectedCity = (e) => {
+    setSelectedCity(e.target.value);
+  };
   const options = [
     {
       value: "",
@@ -44,19 +56,43 @@ const CreateUser = () => {
         onSubmit={handleSubmit}
         className="flex flex-col justify-around items-center w-6/12  h-3/4 border rounded-3xl "
       >
-        <label htmlFor="name" id="name">
-          Name
-        </label>
-        <input type="text" id="name" placeholder="add a name" />
-        <label htmlFor="email" id="email">
-          Email
-        </label>
-        <input type="email" id="email" />
-        <label htmlFor="password" id="password">
-          Password
-        </label>
-        <input type="password" id="password" />
-        <Select options={options} handleChange={handleChange} />
+        <Input
+          type="text"
+          label="Name"
+          value=""
+          placeholder="Enter your Name"
+          className=""
+          id=""
+          htmlFor=""
+        />
+        <Input
+          type="email"
+          label="Email"
+          value=""
+          placeholder="Enter your Email"
+          className=""
+          id=""
+          htmlFor=""
+        />
+        <Input
+          type="password"
+          label="Password"
+          value=""
+          placeholder="Password"
+          className=""
+          id=""
+          htmlFor=""
+        />
+        <Input
+          type="text"
+          label="Image"
+          value=""
+          placeholder="Send your image"
+          className=""
+          id=""
+          htmlFor=""
+        />
+        <Select options={options} handleChange={handleCityChange} />
         <button type="submit">Add</button>
       </form>
     </section>
