@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "../components/Card";
 
 const Home = () => {
@@ -13,15 +14,20 @@ const Home = () => {
     const response = await request.json();
     setUsers(response);
   };
-  console.log(users);
+
   return (
     <main>
       <h1>Random Users</h1>
-      <section className="">
-        <article>
-          <Card users={users} />
-        </article>
+
+      <section className="flex justify-center items-center ">
+        {users.map((user) => {
+          return <Card user={user} />;
+        })}
       </section>
+
+      {/* <section>
+        <article className="bg-slate-600 flex justify-center h-[500px] w-5/6"></article>
+      </section> */}
     </main>
   );
 };

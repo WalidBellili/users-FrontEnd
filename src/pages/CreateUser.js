@@ -6,7 +6,7 @@ const CreateUser = () => {
   const [optionsValue, setOptionsValue] = useState("");
 
   const handleChange = (e) => {
-    setOptions(e.target.value);
+    setOptionsValue(e.target.value);
   };
   const valueInput = (e) => {
     setInputValue(e.target.value);
@@ -39,10 +39,23 @@ const CreateUser = () => {
     };
   };
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="add a name" />
-
+    <section className="flex justify-center items-center h-full ">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-around items-center w-6/12  h-3/4 border rounded-3xl "
+      >
+        <label htmlFor="name" id="name">
+          Name
+        </label>
+        <input type="text" id="name" placeholder="add a name" />
+        <label htmlFor="email" id="email">
+          Email
+        </label>
+        <input type="email" id="email" />
+        <label htmlFor="password" id="password">
+          Password
+        </label>
+        <input type="password" id="password" />
         <Select options={options} handleChange={handleChange} />
         <button type="submit">Add</button>
       </form>

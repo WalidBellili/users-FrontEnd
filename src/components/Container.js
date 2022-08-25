@@ -1,5 +1,5 @@
 const Container = ({ children }) => {
-  return <section className="w-4/5 h-[100vh]">{children}</section>;
+  return <section className=" h-[100vh] bg-slate-400 ">{children}</section>;
 };
 
 export default Container;
