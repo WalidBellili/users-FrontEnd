@@ -9,8 +9,8 @@ import Header from "./components/Header";
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Container>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users/:slug" element={<User />} />

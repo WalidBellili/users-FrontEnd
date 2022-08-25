@@ -15,9 +15,14 @@ const Home = () => {
   };
   console.log(users);
   return (
-    <div>
-      <Card users={users} />
-    </div>
+    <main>
+      <h1>Random Users</h1>
+      <section className="">
+        <article>
+          <Card users={users} />
+        </article>
+      </section>
+    </main>
   );
 };
 
