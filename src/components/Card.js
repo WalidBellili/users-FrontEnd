@@ -16,7 +16,7 @@ const Card = ({ users }) => {
                     width={300}
                     height={230}
                   />
-                  <Link to={`/users/${users.slug}`}>
+                  <Link to={`/users/${user.slug}`}>
                     <p>{user.name}</p>
                   </Link>
                 </div>

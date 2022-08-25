@@ -6,7 +6,7 @@ const User = () => {
   const [users, setUsers] = useState([]);
 
   const { slug } = useParams();
-
+  console.log(slug);
   useEffect(() => {
     fetchDataUsers();
   }, [slug]);

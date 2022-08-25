@@ -5,7 +5,7 @@ const Header = () => {
     <header className="flex justify-between mb-10">
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/users/:user">Users</Link>
+        {/* <Link to="/users">User</Link> */}
         <Link to="/createUser">Create</Link>
       </nav>
     </header>
