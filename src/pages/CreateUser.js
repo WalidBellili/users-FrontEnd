@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "../components/Select";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -7,7 +7,7 @@ const CreateUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [picture, setPicture] = useState("");
+  const [image, setImage] = useState("");
   const [selectCity, setSelectedCity] = useState("");
 
   const handleNameValue = (e) => {
@@ -20,7 +20,7 @@ const CreateUser = () => {
     setPassword(e.target.value);
   };
   const handlePicture = (e) => {
-    setPicture(e.target.value);
+    setImage(e.target.value);
   };
   const handleSelectedCity = (e) => {
     setSelectedCity(e.target.value);
@@ -49,7 +49,26 @@ const CreateUser = () => {
 
     const body = {
       name,
+      email,
+      password,
+      image,
+      city: selectCity,
     };
+
+    await fetch("http://localhost:5000/users/new-user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    setName("");
+    setEmail("");
+    setPassword("");
+    setImage("");
+    setSelectedCity("");
+
+    console.log(body);
   };
   return (
     <section className="flex justify-center items-center h-full ">
@@ -86,8 +105,8 @@ const CreateUser = () => {
         />
         <Input
           type="text"
-          label="Picture"
-          value={picture}
+          label="Image"
+          value={image}
           placeholder="Send your Picture"
           id="picture"
           htmlFor="picture"
