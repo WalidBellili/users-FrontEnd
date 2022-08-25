@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Select from "../components/Select";
 import Input from "../components/Input";
+import Button from "../components/Button";
 
 const CreateUser = () => {
   const [name, setName] = useState("");
@@ -47,7 +48,7 @@ const CreateUser = () => {
     e.preventDefault();
 
     const body = {
-      name: inputValue,
+      name,
     };
   };
   return (
@@ -59,41 +60,45 @@ const CreateUser = () => {
         <Input
           type="text"
           label="Name"
-          value=""
+          value={name}
           placeholder="Enter your Name"
-          className=""
-          id=""
-          htmlFor=""
+          id="name"
+          htmlFor="name"
+          onChange={handleNameValue}
         />
         <Input
           type="email"
           label="Email"
-          value=""
+          value={email}
           placeholder="Enter your Email"
-          className=""
-          id=""
-          htmlFor=""
+          id="email"
+          htmlFor="email"
+          onChange={handleEmailValue}
         />
         <Input
           type="password"
           label="Password"
-          value=""
+          value={password}
           placeholder="Password"
-          className=""
-          id=""
-          htmlFor=""
+          id="Password"
+          htmlFor="Password"
+          onChange={handlePasswordValue}
         />
         <Input
           type="text"
-          label="Image"
-          value=""
-          placeholder="Send your image"
-          className=""
-          id=""
-          htmlFor=""
+          label="Picture"
+          value={picture}
+          placeholder="Send your Picture"
+          id="picture"
+          htmlFor="picture"
+          onChange={handlePicture}
         />
-        <Select options={options} handleChange={handleCityChange} />
-        <button type="submit">Add</button>
+        <Select options={options} handleChange={handleSelectedCity} />
+        <Button
+          type="submit"
+          text="Create"
+          className="w-48 h-12 rounded-full bg-gradient-to-r from-indigo-500 "
+        />
       </form>
     </section>
   );

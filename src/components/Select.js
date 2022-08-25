@@ -1,7 +1,5 @@
-import React from "react";
-
 const Select = ({ options, handleChange }) => {
-  console.log(options);
+
   return (
     <div>
       <select name="city" onChange={handleChange}>
